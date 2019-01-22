@@ -16,7 +16,7 @@ It should come with kinetic, so you only need to pull this repo for the map and 
 
     rosrun map_server map_server hsr_lab_map7.yaml
 
-#### Sap Map ICP
+#### Snap Map ICP
 Pull: https://github.com/Suturo1819/snap_map_icp and: 
 
     roslaunch snap_map_icp snap_map_icp.launch 
