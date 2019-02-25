@@ -25,3 +25,23 @@ Launch your favorite rviz configuration for the robot. For navigation (if you wa
 ![](https://hackmd.informatik.uni-bremen.de/uploads/upload_8ecbe08daf21b9271d8d3d12a22e6d89.png)
 
 Click the *2D Pose Estimate* button in the upper toolbar in Rviz and click and drag on the map in rviz to set the robots location. If you do that after launching snap_map_icp, the localization will work  better, since it will help to rotate the robot into the right configuration in rviz and snap the laser scan to the walls of the map the robot currently sees. 
+
+#### Mapping
+If you want to record a new map, you have to kill a specific node on the robot first:
+
+	rosnode kill /pose_integrator
+	
+Afterwards, run an instance of rviz so that you can see the map, and execute the following: 
+
+	rosrun hector_mapping hector_mapping _map_size:=2048 _map_resolution:=0.03 _pub_map_odom_transform:=true _scan_topic:=/hsrb/base_scan _use_tf_scan_transformation:=true _map_update_angle_thresh:=2.0 _map_update_distance_thresh:=0.10 _scan_subscriber_queue_size:=1 _update_factor_free:=0.39 _update_factor_occupied:=0.85 _base_frame:=base_link
+	
+	
+Drive the robot around until you are happy with the map. If you end up havinga bad loopclosure, just restart the process.
+Once you have a map you are happy with, save it with ros map saver:
+
+	rosrun map_server map_saver NAME
+	
+Then put it into the location where you want it (usually your_ws/src/hsr_navigation/map) and change the name accordingly in the map.launch file, or launch the map the same way it is described above.
+
+#### Troubleshooting
+if the robot has some frame issues even though you are publishing the map, restart the robot so that the node we killed previously will be restarted.
