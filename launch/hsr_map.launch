@@ -1,7 +1,7 @@
 <launch>
-  <!--node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_training_1_edited.yaml" /-->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/map.yaml" />
   
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_arena_bar_extra_walls.yaml" />
+  <!--node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/final.yaml" /-->
   
   <!--node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_arena_living_room.yaml" /-->
 </launch>
