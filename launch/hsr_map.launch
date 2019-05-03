@@ -4,4 +4,9 @@
   <!--node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/final.yaml" /-->
   
   <!--node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_arena_living_room.yaml" /-->
+
+ 
+
+  
+  <node name="tf_buffer" pkg="tf2_ros" type="buffer_server" /> 
 </launch>
