@@ -1,7 +1,0 @@
-<launch>
-<<<<<<< HEAD
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_arena_living_room.yaml" />
-=======
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find hsr_navigation)/map/robocup_training_1_edited.yaml" />
->>>>>>> 0b0ebf21f22530e0e12b5021461c22358def0a54
-</launch>
