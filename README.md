@@ -1,6 +1,11 @@
 # navigation
 The navigation repository. Containing everything navigation related that is not forked from other sources.
 
+# Quickstart
+In order to launch the correct map and the snap map icp node, use this launch file: 
+	
+	roslaunch hsr_navigation roslaunch hsr_navigation hsr_map_and_snap_map.launch
+
 
 # Navigation Doc
 
