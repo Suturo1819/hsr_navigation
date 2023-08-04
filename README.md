@@ -48,5 +48,28 @@ Once you have a map you are happy with, save it with ros map saver:
 	
 Then put it into the location where you want it (usually your_ws/src/hsr_navigation/map) and change the name accordingly in the map.launch file, or launch the map the same way it is described above.
 
+#### HSR Navigation
+issue: unstable localization
+solution: amcl
+reason: apperently the default localization of HSR does not use laser scanner much and relies on odometry most of the time. Using amcl with pr2 parameters solves this issue completely.
+
+#### How to launch better localization (AMCL)
+1. Launch apartment-lab-map
+
+```bash
+roslaunch hsr_navigation hsr_map.launch
+```
+2. kill default localizer
+```bash
+rosnode kill laser_2d_localizer
+```
+3. launch amcl
+```bash
+roslaunch hsr_navigation hsr_amcl.launch
+```
+4. localize robot in rviz and proceed as usual
+
+
+
 #### Troubleshooting
 if the robot has some frame issues even though you are publishing the map, restart the robot so that the node we killed previously will be restarted.
